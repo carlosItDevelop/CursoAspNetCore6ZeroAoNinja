@@ -1,0 +1,70 @@
+﻿@model Cooperchip.ITDeveloper.Domain.Entities.ChamadaMedica
+
+@{
+    ViewBag.Title = "Detalhes da Chamada";
+}
+
+@*@{ Layout = null; }*@
+
+@*<div class="modal-dialog">
+    <div class="modal-content">*@
+
+@*<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">MedicalManagement-Sys - @ViewBag.Title</h4>
+    </div>*@
+
+<div class="modal-header">
+    <h4 class="modal-title">@ViewData["Title"]</h4>
+    <button type="button" class="close" data-dismiss="modal">
+        <span aria-hidden="true">×</span><span class="sr-only">Fechar</span>
+    </button>
+</div>
+
+<form asp-action="EditModal">
+    <div class="modal-body">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <input type="hidden" asp-for="ChamadaMedicoId" />
+
+
+        <div class="form-group">
+            <label asp-for="Mensagem" class="control-label"></label>
+            <input asp-for="Mensagem" class="form-control" />
+            <span asp-validation-for="Mensagem" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DataChamada" class="control-label"></label>
+            <input asp-for="DataChamada" class="form-control" />
+            <span asp-validation-for="DataChamada" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Medico" class="control-label"></label>
+            <input asp-for="Medico" class="form-control" />
+            <span asp-validation-for="Medico" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Leito" class="control-label"></label>
+            <input asp-for="Leito" class="form-control" />
+            <span asp-validation-for="Leito" class="text-danger"></span>
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <input type="submit" value="Atualizar" class="btn btn-primary" data-dismiss="modal" />
+        <input type="button" value="Cancelar" class="btn btn-default" data-dismiss="modal" />
+    </div>
+
+</form>
+
+@*</div>
+    </div>*@
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

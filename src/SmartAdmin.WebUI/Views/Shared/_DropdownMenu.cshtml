@@ -1,0 +1,67 @@
+
+@inject Cooperchip.ITDeveloper.Domain.Interfaces.IUserInContext _userInContext
+
+<div class="dropdown-header bg-trans-gradient d-flex flex-row py-4 rounded-top">
+
+    @* ==============================================/ Carlos-Ju foto perfil navbar =========================== *@
+
+    <div class="d-flex flex-row align-items-center mt-1 mb-1 color-white">
+        <span class="mr-2">
+            @if (_userInContext.IsAuthenticated() && !string.IsNullOrEmpty(_userInContext.GetUserImgProfilePath()))
+            {
+                <img src="/uploads/@_userInContext.GetUserImgProfilePath()" alt="Imagem de Perfil" class="profile-image rounded-circle">
+            }
+            else
+            {
+                <img src="/img/avatars/foto-padrao.jpg" alt="Imagem de Perfil" class="profile-image rounded-circle">
+            }
+        </span>
+        <div class="info-card-text">
+            @if (_userInContext.IsAuthenticated())
+            {
+                <div class="fs-lg text-truncate text-truncate-lg"> @_userInContext.GetUserNomeCompleto() </div>
+                <span class="text-truncate text-truncate-md opacity-80"> @_userInContext.GetUserEmail() </span>
+            }
+            else
+            {
+                <div class="fs-lg text-truncate text-truncate-lg"> Navegação Anônima </div>
+                <span class="text-truncate text-truncate-md opacity-80"> Aguardando login... </span>
+            }
+
+
+        </div>
+    </div>
+
+
+
+</div>
+<div class="dropdown-divider m-0"></div>
+
+<a href="#" class="dropdown-item" data-toggle="modal" data-target=".js-modal-settings">
+    <span data-i18n="drpdwn.settings">Settings</span>
+</a>
+<div class="dropdown-divider m-0"></div>
+<a href="#" class="dropdown-item" data-action="app-fullscreen">
+    <span data-i18n="drpdwn.fullscreen">Fullscreen</span>
+    <i class="float-right text-muted fw-n">F11</i>
+</a>
+
+
+
+
+@* ==================================/ Carlos-Ju login, logout, register =========================== *@
+
+
+
+@if (_userInContext.IsAuthenticated())
+{
+    <a asp-area="Identity" asp-page="/Account/Manage/Index" class="dropdown-item" title="User Profile">Editar Perfil</a>
+    <div class="dropdown-divider m-0"></div>
+    <a asp-area="Identity" asp-page="/Account/Logout" class="dropdown-item" title="Sair"><strong>Sair (Logoff)</strong></a>
+}
+else
+{
+    <div class="dropdown-divider m-0"></div>
+    <a asp-area="Identity" asp-page="/Account/Login" class="dropdown-item" title="Login"><strong>Entrar (Login)</strong></a>
+}
+

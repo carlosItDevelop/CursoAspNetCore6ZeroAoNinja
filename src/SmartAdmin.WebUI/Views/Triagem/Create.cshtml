@@ -1,0 +1,37 @@
+﻿
+@model Cooperchip.ITDeveloper.Domain.Entities.Triagem
+
+@{
+    ViewData["Title"] = "Adicionar Paciente";
+}
+
+
+<div class="row">
+    <div class="panel panel-heading">
+        <h3>Nova Triagem</h3>
+    </div>
+
+    <div class="panel panel-body">
+        <div class="col-md-4">
+            <form asp-controller="Triagem" asp-action="Create">
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <partial name="_edit_create" />
+
+                <div class="form-group">
+                    <input type="submit" value="Adicionar Notificação" class="btn btn-success" />
+                    <a asp-controller="Triagem" asp-action="Index" class="btn btn-outline-info">Voltar à lista</a>
+                </div>
+                
+
+            </form>
+        </div>
+    </div>
+
+
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

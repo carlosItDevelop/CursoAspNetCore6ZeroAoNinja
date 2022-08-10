@@ -1,0 +1,37 @@
+﻿@model Cooperchip.ITDeveloper.Application.ViewModels.TagsViewModel
+
+<div class="form-group">
+    <label asp-for="Tag" class="control-label"></label>
+    <input asp-for="Tag" class="form-control" />
+    <span asp-validation-for="Tag" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="SourceAt" class="control-label"></label>
+    <input asp-for="SourceAt" class="form-control" />
+    <span asp-validation-for="SourceAt" class="text-danger"></span>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default toggle panelMove panelClose panelRefresh">
+            <div class="panel-heading">
+                <h4 class="panel-title">Anotações</h4>
+            </div>
+            <div class="panel-body">
+                    <div class="form-group">
+                        <div>
+                            <textarea asp-for="Note" class="form-control" id="summernote" placeholder="Faça suas anotações aqui..."></textarea>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-group">
+    <label asp-for="AuthorId" class="control-label"></label>
+    <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.AuthorId"></select>
+    <span asp-validation-for="AuthorId" class="text-danger"></span>
+</div>

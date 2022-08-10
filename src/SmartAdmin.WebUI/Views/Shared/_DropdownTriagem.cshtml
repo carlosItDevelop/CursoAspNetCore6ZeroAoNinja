@@ -1,0 +1,170 @@
+<div class="dropdown-header bg-trans-gradient d-flex justify-content-center align-items-center rounded-top mb-2">
+    <h4 class="m-0 text-center color-white">
+        Notifica&ccedil;&otilde;es / Acompanhamento
+        @*<small class="mb-0 opacity-80">Acompanhamento</small>*@
+    </h4>
+</div>
+<ul class="nav nav-tabs nav-tabs-clean" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link px-4 fs-md js-waves-on fw-500" data-toggle="tab" href="#tab-messages-triagem" data-i18n="drpdwn.messages">Triagem</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link px-4 fs-md js-waves-on fw-500" data-toggle="tab" href="#tab-chamadamedica-triagem" data-i18n="drpdwn.messages">Chamada M&eacutedica</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link px-4 fs-md js-waves-on fw-500" data-toggle="tab" href="#tab-feeds-triagem" data-i18n="drpdwn.feeds">Feeds</a>
+    </li>
+</ul>
+<div class="tab-content tab-notification">
+    <div class="tab-pane active p-3 text-center">
+        <h5 class="mt-4 pt-4 fw-500">
+            <span class="d-block fa-3x pb-4 text-muted">
+                <i class="ni ni-arrow-up text-gradient opacity-70"></i>
+            </span> Select a tab above to activate
+            <small class="mt-3 fs-b fw-400 text-muted">
+                This blank page message helps protect your privacy, or you can show the first message here automatically through
+                <a href="#">settings page</a>
+            </small>
+        </h5>
+    </div>
+    <div class="tab-pane" id="tab-messages-triagem" role="tabpanel">
+        <div class="custom-scroll h-100">
+
+
+            <ul class="notification">
+
+                <vc:notify-triagem></vc:notify-triagem>
+
+            </ul>
+        </div>
+    </div>
+    <div class="tab-pane" id="tab-chamadamedica-triagem" role="tabpanel">
+        <div class="custom-scroll h-100">
+
+            <vc:chamada-medicas></vc:chamada-medicas>
+        </div>
+
+ 
+    </div>
+    <div class="tab-pane" id="tab-feeds-triagem" role="tabpanel">
+        <div class="custom-scroll h-100">
+            <ul class="notification">
+                <li class="unread">
+                    <div class="d-flex align-items-center show-child-on-hover">
+                        <span class="d-flex flex-column flex-1">
+                            <span class="name d-flex align-items-center">Administrator <span class="badge badge-success fw-n ml-1">UPDATE</span></span>
+                            <span class="msg-a fs-sm">
+                                System updated to version <strong>@Settings.Theme.ThemeVersion</strong> <a href="/docs/buildnotes">(patch notes)</a>
+                            </span>
+                            <span class="fs-nano text-muted mt-1">5 mins ago</span>
+                        </span>
+                        <div class="show-on-hover-parent position-absolute pos-right pos-bottom p-3">
+                            <a href="#" class="text-muted" title="delete"><i class="@(Settings.Theme.IconPrefix) fa-trash-alt"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="d-flex align-items-center show-child-on-hover">
+                        <div class="d-flex flex-column flex-1">
+                            <span class="name">
+                                Adison Lee <span class="fw-300 d-inline">replied to your video <a href="#" class="fw-400"> Cancer Drug</a> </span>
+                            </span>
+                            <span class="msg-a fs-sm mt-2">Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day...</span>
+                            <span class="fs-nano text-muted mt-1">10 minutes ago</span>
+                        </div>
+                        <div class="show-on-hover-parent position-absolute pos-right pos-bottom p-3">
+                            <a href="#" class="text-muted" title="delete"><i class="@(Settings.Theme.IconPrefix) fa-trash-alt"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="d-flex align-items-center show-child-on-hover">
+                        <div class="d-flex flex-column flex-1">
+                            <span class="name">
+                                Troy Norman'<span class="fw-300">s new connections</span>
+                            </span>
+                            <div class="fs-sm d-flex align-items-center mt-2">
+                                <span class="profile-image-md mr-1 rounded-circle d-inline-block" style="background-image:url('/img/demo/avatars/avatar-a.png'); background-size: cover;"></span>
+                                <span class="profile-image-md mr-1 rounded-circle d-inline-block" style="background-image:url('/img/demo/avatars/avatar-b.png'); background-size: cover;"></span>
+                                <span class="profile-image-md mr-1 rounded-circle d-inline-block" style="background-image:url('/img/demo/avatars/avatar-c.png'); background-size: cover;"></span>
+                                <span class="profile-image-md mr-1 rounded-circle d-inline-block" style="background-image:url('/img/demo/avatars/avatar-e.png'); background-size: cover;"></span>
+                                <div data-hasmore="+3" class="rounded-circle profile-image-md mr-1">
+                                    <span class="profile-image-md mr-1 rounded-circle d-inline-block" style="background-image:url('/img/demo/avatars/avatar-h.png'); background-size: cover;"></span>
+                                </div>
+                            </div>
+                            <span class="fs-nano text-muted mt-1">55 minutes ago</span>
+                        </div>
+                        <div class="show-on-hover-parent position-absolute pos-right pos-bottom p-3">
+                            <a href="#" class="text-muted" title="delete"><i class="@(Settings.Theme.IconPrefix) fa-trash-alt"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="d-flex align-items-center show-child-on-hover">
+                        <div class="d-flex flex-column flex-1">
+                            <span class="name">Dr John Cook <span class="fw-300">sent a <span class="text-danger">new signal</span></span></span>
+                            <span class="msg-a fs-sm mt-2">Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</span>
+                            <span class="fs-nano text-muted mt-1">10 minutes ago</span>
+                        </div>
+                        <div class="show-on-hover-parent position-absolute pos-right pos-bottom p-3">
+                            <a href="#" class="text-muted" title="delete"><i class="@(Settings.Theme.IconPrefix) fa-trash-alt"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="d-flex align-items-center show-child-on-hover">
+                        <div class="d-flex flex-column flex-1">
+                            <span class="name">Lab Images <span class="fw-300">were updated!</span></span>
+                            <div class="fs-sm d-flex align-items-center mt-1">
+                                <a href="#" class="mr-1 mt-1" title="Cell A-0012">
+                                    <span class="d-block img-share" style="background-image:url('/img/thumbs/pic-7.png'); background-size: cover;"></span>
+                                </a>
+                                <a href="#" class="mr-1 mt-1" title="Patient A-473 saliva">
+                                    <span class="d-block img-share" style="background-image:url('/img/thumbs/pic-8.png'); background-size: cover;"></span>
+                                </a>
+                                <a href="#" class="mr-1 mt-1" title="Patient A-473 blood cells">
+                                    <span class="d-block img-share" style="background-image:url('/img/thumbs/pic-11.png'); background-size: cover;"></span>
+                                </a>
+                                <a href="#" class="mr-1 mt-1" title="Patient A-473 Membrane O.C">
+                                    <span class="d-block img-share" style="background-image:url('/img/thumbs/pic-12.png'); background-size: cover;"></span>
+                                </a>
+                            </div>
+                            <span class="fs-nano text-muted mt-1">55 minutes ago</span>
+                        </div>
+                        <div class="show-on-hover-parent position-absolute pos-right pos-bottom p-3">
+                            <a href="#" class="text-muted" title="delete"><i class="@(Settings.Theme.IconPrefix) fa-trash-alt"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="d-flex align-items-center show-child-on-hover">
+                        <div class="d-flex flex-column flex-1">
+                            <div class="name mb-2">
+                                Lisa Lamar<span class="fw-300"> updated project</span>
+                            </div>
+                            <div class="row fs-b fw-300">
+                                <div class="col text-left">
+                                    Progress
+                                </div>
+                                <div class="col text-right fw-500">
+                                    45%
+                                </div>
+                            </div>
+                            <div class="progress progress-sm d-flex mt-1">
+                                <span class="progress-bar bg-primary-500 progress-bar-striped" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></span>
+                            </div>
+                            <span class="fs-nano text-muted mt-1">2 hrs ago</span>
+                            <div class="show-on-hover-parent position-absolute pos-right pos-bottom p-3">
+                                <a href="#" class="text-muted" title="delete"><i class="@(Settings.Theme.IconPrefix) fa-trash-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<div class="py-2 px-3 bg-faded d-block rounded-bottom text-right border-faded border-bottom-0 border-right-0 border-left-0">
+    <a href="#" class="fs-xs fw-500 ml-auto">view all notifications</a>
+</div>

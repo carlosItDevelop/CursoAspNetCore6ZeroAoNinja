@@ -1,0 +1,124 @@
+﻿
+@using Cooperchip.ITDeveloper.Mvc.Extensions.ExtensionsMethods
+@model IEnumerable<Cooperchip.ITDeveloper.Domain.Entities.Triagem>
+
+
+
+@{
+    ViewData["Title"] = "Triagem - Listagem";
+    ViewData["PageName"] = "triagem_index";
+    ViewData["Category1"] = "Cadastro";
+
+    ViewData["Heading"] = "<i class='subheader-icon fal fa-table'></i> Pacientes na Triagem";
+
+    ViewData["PageDescription"] = "Exporte os dados para PDF, Excel e CSV sem qualquer complicação!";
+}
+
+@section HeadBlock {
+    <link rel="stylesheet" media="screen, print" href="~/css/datagrid/datatables/datatables.bundle.css">
+    <link rel="stylesheet" media="screen, print" href="~/css/fa-solid.css">
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div id="panel-1" class="panel">
+            <div class="panel-hdr">
+                <h2>
+                    <p>
+                        <a asp-controller="Triagem" asp-action="Create" class="btn btn-outline-primary">Nova Triagem</a>
+                    </p>
+                </h2>
+                <div class="panel-toolbar">
+                    <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+                    <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+                    <button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+                </div>
+            </div>
+            <div class="panel-container show">
+                <div class="panel-content">
+                    <table id="dt-basic-example" class="table table-bordered table-hover table-striped w-100 dt-basic-srmartadmin">
+                        <thead class="bg-primary-600">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DataNotificacao)
+                                </th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NomePaciente)
+                                </th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Mensagem)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CodigoPaciente)
+                                </th>
+
+                                <th class="text-center">Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DataNotificacao)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NomePaciente)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Mensagem)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CodigoPaciente)
+                                    </td>
+
+                                    <td class="text-center">
+
+                                        <a asp-controller="Triagem" asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Triagem de Paciente" data-original-title="Triagem de Paciente"><i class="fa fa-eye"></i> </a>
+
+
+                                        <a asp-controller="Triagem" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="bottom" title="Excluir Triagem" data-original-title="Excluir Triagem"><i class="fa fa-trash"></i> </a>
+
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            @*<tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DataNotificacao)
+                                    </th>
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.NomePaciente)
+                                    </th>
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Mensagem)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CodigoPaciente)
+                                    </th>
+
+                                    <th class="text-center">Ação</th>
+                                </tr>*@
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section ScriptsBlock {
+
+
+    <partial name="PartialViews/_ScriptDataTables" />
+    @* .dt-basic-srmartadmin *@
+
+}

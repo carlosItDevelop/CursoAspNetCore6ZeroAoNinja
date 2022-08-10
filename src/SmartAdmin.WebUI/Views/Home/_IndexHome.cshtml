@@ -1,0 +1,64 @@
+﻿
+@inject Cooperchip.ITDeveloper.Domain.Interfaces.IUserInContext _userInContext
+
+<div class="wrapper">
+    <br />
+    <div class="row text-center">
+
+
+
+        <div class="col-md-3 col-sm-3 col-sx-12" style="padding-bottom: 15px;">
+                <div class="card card-inverse text-md-center text-sm-center text-xs-center">
+                    <img src="/images/dashboard.png" class="card-img-top" style="width: 100%; height: auto" />
+                    <div class="card-img-overlay">
+
+                        @if (_userInContext.IsAuthenticated() && _userInContext.IsInRole("Admin"))
+                        {
+
+                            <div style="text-align: center">
+                                <a asp-controller="Intel" asp-action="AnalyticsDashboard" style="text-decoration: none; color: #ed5353; font-size: 16px;">
+                                    <h4 class="card-title">.:: Entrar-Admin ::.</h4>
+                                </a>
+                            </div>
+
+
+                            @*<div style="text-align: center">
+                                <a asp-controller="Home" asp-action="Dashboard" style="text-decoration: none; color: #ed5353; font-size: 16px;">
+                                    <h4 class="card-title">.:: Entrar-Admin ::.</h4>
+                                </a>
+                            </div>*@
+
+                        }
+                        else
+                        {
+                            <div style="text-align: center">
+                                <a asp-controller="Home" asp-action="BoxInit" style="text-decoration: none; color: #ed5353; font-size: 16px;">
+                                    <h4 class="card-title">.:: Entrar-Comum ::.</h4>
+                                </a>
+                            </div>
+                        }
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        <index-home titulo="Registro de Pacientes" imagem="atualizacao_cadastral.png" controlador="Paciente" visualizacao="Index"></index-home>
+        <index-home titulo="Agenda" imagem="calendar.png" controlador="Agenda" visualizacao="Index"></index-home>
+        <index-home titulo="Chamada Médica" imagem="examesdeimagens.png" controlador="ChamadaMedica" visualizacao="Index"></index-home>
+    </div>
+    <div class="row text-center">
+        <index-home titulo="Prontuários" imagem="evolucao.png" controlador="Prontuario" visualizacao="Index"></index-home>
+        <index-home titulo="Unidade Geográfica" imagem="prescricao.png" controlador="UnidadeGeografica" visualizacao="Index"></index-home>
+        <index-home titulo="Base de Conhecimento" imagem="sinais_vitais.png" controlador="BaseDeConhecimento" visualizacao="Index"></index-home>
+        <index-home titulo="Mural de Avisos" imagem="mural.png" controlador="Mural" visualizacao="Index"></index-home>
+    </div>
+    <div class="row text-center">
+        <index-home titulo="Int. Medicamentosas" imagem="interacao_medicamentosa.png" controlador="InteracaoMedicamentosa" visualizacao="Index"></index-home>
+        <index-home titulo="Controle de Acesso" imagem="niveldeacesso.png" controlador="ControleDeAcesso" visualizacao="Index"></index-home>
+        <index-home titulo="Adm de Usuários" imagem="users.png" controlador="UsersAdmin" visualizacao="Index"></index-home>
+        <index-home titulo="Configurações" imagem="config.png" controlador="Configuracoes" visualizacao="Index"></index-home>
+
+    </div>
+</div>

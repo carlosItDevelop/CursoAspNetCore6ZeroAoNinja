@@ -1,0 +1,66 @@
+﻿@model List<string>
+
+
+@{ ViewData["Title"] = "Lista de Configurações";
+    ViewData["PageName"] = "listasettings_index";
+    ViewData["Category1"] = "Configurações";
+    ViewData["Heading"] = "<i class='subheader-icon fal fa-table'></i> Configurações AppSettings"; }
+
+@section HeadBlock {
+    <link rel="stylesheet" media="screen, print" href="~/css/datagrid/datatables/datatables.bundle.css">
+    <link rel="stylesheet" media="screen, print" href="~/css/fa-solid.css">
+}
+
+
+<div class="row">
+    <div class="col-xl-12">
+        <div id="panel-1" class="panel">
+            <div class="panel-hdr">
+                <h2>
+                    <p>
+                        <a href="#" class="btn btn-outline-primary">Nova Featue</a>
+                    </p>
+                </h2>
+                <div class="panel-toolbar">
+                    <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+                    <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+                    <button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+                </div>
+            </div>
+            <div class="panel-container show">
+                <div class="panel-content">
+
+                    <table id="dt-basic-listaSettings" class="table table-bordered table-hover table-striped w-100 dt-basic-srmartadmin">
+                        <thead class="dark">
+                            <tr>
+                                <th>
+                                    Configurações do AppSettings JSON
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <h5><b>@item</b></h5>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section ScriptsBlock {
+
+    <partial name="PartialViews/_ScriptDataTables" />
+    @* .dt-basic-srmartadmin *@
+
+}

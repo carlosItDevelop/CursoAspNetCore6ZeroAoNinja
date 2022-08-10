@@ -1,0 +1,212 @@
+﻿@model Cooperchip.ITDeveloper.Application.ViewModels.Farmacia.FornecedorViewModel
+
+
+@{
+    ViewData["Title"] = "Edição de Produtos";
+    ViewData["PageName"] = "editar-produto_edit";
+    ViewData["Category1"] = "Farmácia";
+    ViewData["Heading"] = "<i class='subheader-icon fal fa-table'></i> Edição de Fornecedores";
+    ViewData["PageDescription"] = "Edição de Fornecedores e Produtos /  Módulo Farmácia";
+}
+
+@section HeadBlock {
+    <link rel="stylesheet" media="screen, print" href="~/css/datagrid/datatables/datatables.bundle.css">
+    <link rel="stylesheet" media="screen, print" href="~/css/fa-solid.css">
+}
+
+<div class="row">
+
+    <div class="col-xl-12">
+        <div id="panel-1" class="panel">
+            <div class="panel-hdr">
+                <h2></h2>
+                <div class="panel-toolbar">
+
+                    <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip"
+                            data-offset="0,10" data-original-title="Collapse"></button>
+
+                    <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip"
+                            data-offset="0,10" data-original-title="Fullscreen"></button>
+
+                    <button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip"
+                            data-offset="0,10" data-original-title="Close"></button>
+
+                </div>
+            </div>
+
+            <div class="panel-container show">
+                <div class="panel-content">
+                    <div class="col-md-12">
+
+                        <form asp-action="Edit">
+
+                            <vc:Summary></vc:Summary>
+
+                            <input type="hidden" asp-for="Id" />
+
+                            <div class="form-row form-group">
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Nome</label>
+                                    <input type="text" asp-for="Nome" class="form-control" placeholder="Nome" />
+                                    <span asp-validation-for="Nome" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Documento</label>
+                                    <input asp-for="Documento" class="form-control" placeholder="Documento" />
+                                    <span asp-validation-for="Documento" class="text-danger"></span>
+                                </div>
+
+
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">TipoFornecedor</label>
+                                    <div class="frame-wrap">
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input checked="@(Model.TipoFornecedor == 1)" asp-for="TipoFornecedor"
+                                                   type="radio" class="custom-control-input"
+                                                   id="defaultInline1Radio" name="TipoFornecedor" value="1">
+                                            <label class="custom-control-label" for="defaultInline1Radio"> Pessoa Física</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input checked="@(Model.TipoFornecedor == 2)" asp-for="TipoFornecedor"
+                                                   type="radio" class="custom-control-input"
+                                                   id="defaultInline2Radio" name="TipoFornecedor" value="2">
+                                            <label class="custom-control-label" for="defaultInline2Radio"> Pessoa Jurídica</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group text-left col-md-3 mb-3">
+                                    <label class="form-label">Status</label>
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input" id="customSwitch2" asp-for="Ativo">
+                                        <label class="custom-control-label" for="customSwitch2"> Ativo ?</label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-outline-info">Salvar</button>
+                            </div>
+                        </form>
+
+                        <div id="EnderecoTarget">
+                            <partial name="_DetalhesEndereco" />
+                        </div>
+
+                        <hr />
+                        <h4>Produtos</h4>
+                        <div>
+                            <partial name="../Produtos/_ListaProdutos" model="@Model.Produtos" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="myModal" class="modal fade in">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div id="myModalContent"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        SetModal()
+    </script>
+
+
+}
+
+
+@section ScriptsBlock {
+    <script src="~/js/datagrid/datatables/datatables.bundle.js"></script>
+    <script src="~/js/datagrid/datatables/datatables.export.js"></script>
+    <script>
+        $(document).ready(function () {
+            // initialize datatable
+            $('#dt-basic-example').dataTable({
+                responsive: true,
+                lengthChange: false, // Aqui mostra ou não a qtde de arquivo por página
+                dom:
+                    /*	--- Layout Structure
+                        --- Options
+                        l	-	length changing input control
+                        f	-	filtering input
+                        t	-	The table!
+                        i	-	Table information summary
+                        p	-	pagination control
+                        r	-	processing display element
+                        B	-	buttons
+                        R	-	ColReorder
+                        S	-	Select
+                        --- Markup
+                        < and >				- div element
+                        <"class" and >		- div with a class
+                        <"#id" and >		- div with an ID
+                        <"#id.class" and >	- div with an ID and a class
+                        --- Further reading
+                        https://datatables.net/reference/option/dom
+                        --------------------------------------
+                     */
+                    "<'row mb-3'<'col-sm-12 col-md-6 d-flex align-items-center justify-content-start'f><'col-sm-12 col-md-6 d-flex align-items-center justify-content-end'lB>>" +
+                    "<'row'<'col-sm-12'tr>>" +
+                    "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+                buttons: [
+                    /*{
+                        extend:    'colvis',
+                        text:      'Column Visibility',
+                        titleAttr: 'Col visibility',
+                        className: 'mr-sm-3'
+                    },*/
+                    {
+                        extend: 'pdfHtml5',
+                        text: 'PDF',
+                        titleAttr: 'Gerar um PDF',
+                        className: 'btn-outline-danger btn-sm mr-1'
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        text: 'Excel',
+                        titleAttr: 'Criar um arquivo Excel',
+                        className: 'btn-outline-success btn-sm mr-1'
+                    },
+                    {
+                        extend: 'csvHtml5',
+                        text: 'CSV',
+                        titleAttr: 'Gerar um arquivo CSV',
+                        className: 'btn-outline-primary btn-sm mr-1'
+                    }//,
+                    //{
+                    //    extend: 'copyHtml5',
+                    //    text: 'Copiar',
+                    //    titleAttr: 'Copiar para a Área de Transferência',
+                    //    className: 'btn-outline-primary btn-sm mr-1'
+                    //},
+                    //{
+                    //    extend: 'print',
+                    //    text: 'Imprimir',
+                    //    titleAttr: 'Imprimir a Listagem',
+                    //    className: 'btn-outline-primary btn-sm'
+                    //}
+                ]
+            });
+        });</script>
+}
+

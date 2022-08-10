@@ -1,0 +1,41 @@
+﻿@model Cooperchip.ITDeveloper.Application.ViewModels.AuthorViewModel
+
+
+@{
+    ViewData["Title"] = "Adicionar Autor";
+}
+
+
+<vc:cabecalho titulo="Cooperchip-Sys / Módulo Tags"
+              subtitulo="Administração de Tags"></vc:cabecalho>
+
+<div class="panel panel-default panel-controls">
+    <div class="panel panel-heading">
+        <h3>Adicionar Autor</h3>
+    </div>
+
+    <div class="panel panel-body">
+
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-controller="Author" asp-action="Create">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <partial name="Partial/_create_edit" />
+
+                    <div class="form-group">
+                        <input type="submit" value="Adicionar" class="btn btn-primary" />
+                        <a class="btn btn-dark" asp-action="Index">Listagem</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+}

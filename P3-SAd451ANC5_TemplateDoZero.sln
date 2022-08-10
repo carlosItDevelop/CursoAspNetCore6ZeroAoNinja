@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cooperchip.ITDeveloper.Mvc", "src\SmartAdmin.WebUI\Cooperchip.ITDeveloper.Mvc.csproj", "{52722178-0138-4B74-B84B-D1F6F5BEFEE6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E3580F9C-2DDF-488C-85C7-C689E48F5303}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		NuGet.config = NuGet.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{7D347DC7-5535-4079-9B61-80D4B5B0E829}"
+	ProjectSection(SolutionItems) = preProject
+		CONTRIBUTING.md = CONTRIBUTING.md
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E75F4F9C-0E0F-4A45-A30A-D8455EAE0BB6}"
+	ProjectSection(SolutionItems) = preProject
+		..\TagsCooperchip-5.0.6\Global.json = ..\TagsCooperchip-5.0.6\Global.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Presentation", "01.Presentation", "{7FC0B442-1BE7-410E-82B5-57971FD67B2C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.Services", "02.Services", "{8E70F829-E8B5-49F2-BBBA-0278C229324E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Prontuario", "4.Prontuario", "{85D121B3-A8A8-49D6-8A81-D17C7EFE58F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.Paciente", "5.Paciente", "{B19ACE33-0C46-4CDA-9110-3FCDE986A49D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52722178-0138-4B74-B84B-D1F6F5BEFEE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52722178-0138-4B74-B84B-D1F6F5BEFEE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52722178-0138-4B74-B84B-D1F6F5BEFEE6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{52722178-0138-4B74-B84B-D1F6F5BEFEE6}.Debug|x64.Build.0 = Debug|Any CPU
+		{52722178-0138-4B74-B84B-D1F6F5BEFEE6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{52722178-0138-4B74-B84B-D1F6F5BEFEE6}.Debug|x86.Build.0 = Debug|Any CPU
+		{52722178-0138-4B74-B84B-D1F6F5BEFEE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52722178-0138-4B74-B84B-D1F6F5BEFEE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52722178-0138-4B74-B84B-D1F6F5BEFEE6}.Release|x64.ActiveCfg = Release|Any CPU
+		{52722178-0138-4B74-B84B-D1F6F5BEFEE6}.Release|x64.Build.0 = Release|Any CPU
+		{52722178-0138-4B74-B84B-D1F6F5BEFEE6}.Release|x86.ActiveCfg = Release|Any CPU
+		{52722178-0138-4B74-B84B-D1F6F5BEFEE6}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{52722178-0138-4B74-B84B-D1F6F5BEFEE6} = {7FC0B442-1BE7-410E-82B5-57971FD67B2C}
+		{7FC0B442-1BE7-410E-82B5-57971FD67B2C} = {E75F4F9C-0E0F-4A45-A30A-D8455EAE0BB6}
+		{8E70F829-E8B5-49F2-BBBA-0278C229324E} = {E75F4F9C-0E0F-4A45-A30A-D8455EAE0BB6}
+		{85D121B3-A8A8-49D6-8A81-D17C7EFE58F2} = {8E70F829-E8B5-49F2-BBBA-0278C229324E}
+		{B19ACE33-0C46-4CDA-9110-3FCDE986A49D} = {8E70F829-E8B5-49F2-BBBA-0278C229324E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A629F572-4FEF-49B0-9D97-2A2D63A669A1}
+	EndGlobalSection
+EndGlobal

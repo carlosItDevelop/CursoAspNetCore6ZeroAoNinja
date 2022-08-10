@@ -1,0 +1,183 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<vc:cabecalho titulo="Dashbord" subtitulo="Estatísticas e Marcadores do Sistema">
+</vc:cabecalho>
+
+<partial name="PartialViews/_estado_paciente" />
+
+
+
+<div class="panel panel-default panel-controls">
+    <div class="panel panel-heading">
+        <h3>Estatísticas e Marcadores em Tempo Real</h3>
+    </div>
+
+    <div class="panel panel-body">
+        <!-- Start .row -->
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+            <!-- col-lg-8 start here -->
+            <div class="col-lg-9 col-sm-9 col-xs-12 p0">
+                <!-- col-lg-9 start here -->
+                <div class="panel panel-default plain btrr0 bbrr0 panelRefresh" data-mh="payments">
+                    <!-- Start .panel -->
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><i class="fa fa-dollar"></i> Payment received</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div id="line-chart-payments" style="width: 100%; height:250px;"></div>
+                    </div>
+                </div>
+                <!-- End .panel -->
+            </div>
+            <!-- col-lg-9 end here -->
+            <div class="col-lg-3 col-sm-3 col-xs-12 p0">
+                <!-- col-lg-3 start here -->
+                <div class="panel panel-default tile btlr0 bblr0" data-mh="payments">
+                    <!-- Start .panel -->
+                    <div class="panel-body">
+                        <div class="spark clearfix">
+                            <div class="spark-info mb0">
+                                <span class="number stats-number money s32" data-from="0" data-to="12857">0</span>
+                            </div>
+                            <div class="spark-info mtm5">Total income</div>
+                        </div>
+                        <div class="spark clearfix">
+                            <div class="spark-info mb0">
+                                <span class="number stats-number money s32 color-gray-light" data-from="0" data-to="4578"></span>
+                            </div>
+                            <div class="sparkline spark-payments mt0"></div>
+                            <div class="spark-info">Credit Card</div>
+                        </div>
+                        <div class="spark clearfix">
+                            <div class="spark-info mb0">
+                                <span class="number stats-number money s32 color-gray-light" data-from="0" data-to="5241"></span>
+                            </div>
+                            <div class="sparkline spark-payments mt0"></div>
+                            <div class="spark-info">Pay Pal</div>
+                        </div>
+                        <div class="db per100">
+                            <a href="#" class="btn btn-info ml20 mt5">Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End .panel -->
+            </div>
+            <!-- col-lg-3 end here -->
+        </div>
+        <!-- col-lg-8 end here -->
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <!-- col-lg-4 start here -->
+            <div class="panel panel-default plain">
+                <!-- Start .panel -->
+                <div class="panel-heading">
+                    <h4 class="panel-title"><i class="glyphicon glyphicon-user"></i> Customer experience</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        <div id="customer-exp" class="custom-progressbar blue" style="width:244px;height:244px;">
+                            <div class="percent">
+                                80<span>%</span>
+                            </div>
+                            <div class="description">satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- col-lg-4 end here -->
+    </div>
+    <!-- End .row -->
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+
+
+                    @await Html.PartialAsync("PartialViews/_MontlySalesGoals")
+
+
+                </div>
+            </div>
+            <!-- End .row -->
+            <div class="row">
+                <!-- Start .row -->
+
+                @await Html.PartialAsync("PartialViews/_LastSalesLocations")
+
+
+                <!-- col-lg-12 end here -->
+            </div>
+            <!-- End .row -->
+        </div>
+        <!-- col-lg-8 end here -->
+        <div class="col-lg-4 col-md-12">
+            <!-- col-lg-4 start here -->
+            <div class="panel panel-default plain toggle panelMove panelClose panelRefresh">
+                <!-- Start .panel -->
+                <div class="panel-heading">
+                    <h4 class="panel-title"><i class="fa fa-comments"></i>Customer Comments</h4>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group recent-comments">
+                        <li class="list-group-item clearfix comment-success">
+                            <div class="avatar pull-left mr15">
+                                <img src="/img/avatars/2.jpg" alt="avatar">
+                            </div>
+                            <p class="text-ellipsis"><span class="name strong">Ben Simpson: </span> Very happy with your support is really great, keep that quality.</p>
+                            <span class="date text-muted small pull-left">Dec 18, 2014, 4:24 pm</span>
+                            <a href="#" class="see-more small pull-right">View comment</a>
+                        </li>
+                        <li class="list-group-item clearfix comment-default">
+                            <div class="avatar pull-left mr15">
+                                <img src="/img/avatars/3.jpg" alt="avatar">
+                            </div>
+                            <p class="text-ellipsis"><span class="name strong">Jonh: </span> Fine items but you could invest more time.</p>
+                            <span class="date text-muted small pull-left">Dec 18, 2014, 12:11 pm</span>
+                            <a href="#" class="see-more small pull-right">View comment</a>
+                        </li>
+                        <li class="list-group-item clearfix comment-info">
+                            <div class="avatar pull-left mr15">
+                                <img src="/img/avatars/4.jpg" alt="avatar">
+                            </div>
+                            <p class="text-ellipsis"><span class="name strong">Dina Dowsen: </span> Awesome items, really fast delivery.</p>
+                            <span class="date text-muted small pull-left">Dec 18, 2014, 8:17 pm</span>
+                            <a href="#" class="see-more small pull-right">View comment</a>
+                        </li>
+                        <li class="list-group-item clearfix comment-warning">
+                            <div class="avatar pull-left mr15">
+                                <img src="/img/avatars/5.jpg" alt="avatar">
+                            </div>
+                            <p class="text-ellipsis"><span class="name strong">Matt: </span> I`m not impressed but is fine.</p>
+                            <span class="date text-muted small pull-left">Dec 17, 2014, 6:24 pm</span>
+                            <a href="#" class="see-more small pull-right">View comment</a>
+                        </li>
+                        <li class="list-group-item clearfix comment-danger">
+                            <div class="avatar pull-left mr15">
+                                <img src="/img/avatars/6.jpg" alt="avatar">
+                            </div>
+                            <p class="text-ellipsis"><span class="name strong">Ben Simpson: </span> This is worst item i ever seen.</p>
+                            <span class="date text-muted small pull-left">Dec 16, 2014, 1:20 pm</span>
+                            <a href="#" class="see-more small pull-right">View comment</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- col-lg-4 end here -->
+    </div>
+    <!-- End .row -->
+
+</div>
+
+
+
+@section Scripts {
+
+    <script src="~/bundle/dashboard.min.js"></script>
+
+}

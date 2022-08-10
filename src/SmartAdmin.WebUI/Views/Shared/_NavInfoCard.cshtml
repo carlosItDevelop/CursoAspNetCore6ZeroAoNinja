@@ -1,0 +1,48 @@
+
+@inject Cooperchip.ITDeveloper.Domain.Interfaces.IUserInContext _userInContext
+
+<div class="info-card">
+
+
+    @if (_userInContext.IsAuthenticated() && !string.IsNullOrEmpty(_userInContext.GetUserImgProfilePath()))
+    {
+        <img src="/uploads/@_userInContext.GetUserImgProfilePath()" alt="Imagem de Perfil" class="profile-image rounded-circle">
+    }
+    else
+    {
+        <img src="/img/avatars/foto-padrao.jpg" alt="Imagem de Perfil" class="profile-image rounded-circle">
+    }
+
+
+
+    <div class="info-card-text">
+        <a href="#" class="d-flex align-items-center text-white">
+            <span class="text-truncate text-truncate-sm d-inline-block">
+
+                @if (_userInContext.IsAuthenticated())
+                {
+                    @_userInContext.GetUserNomeCompleto();
+                }
+                else
+                {
+                    <span>Navega&ccedil;&atilde;o</span>
+                }
+
+            </span>
+        </a>
+        @if (_userInContext.IsAuthenticated())
+        {
+            @_userInContext.GetUserEmail();
+        }
+        else
+        {
+            <span class="d-inline-block text-truncate text-truncate-sm">An&ocirc;nimo...</span>
+        }
+
+
+    </div>
+    <img src="~/img/card-backgrounds/cover-5-lg.png" class="cover" alt="cover">
+    <a href="#" onclick="return false;" class="pull-trigger-btn" data-action="toggle" data-class="list-filter-active" data-target=".page-sidebar" data-focus="nav_filter_input">
+        <i class="@(Settings.Theme.IconPrefix) fa-angle-down"></i>
+    </a>
+</div>

@@ -1,0 +1,58 @@
+@using Cooperchip.ITDeveloper.Domain.Enums
+@model Cooperchip.ITDeveloper.Application.ViewModels.PacienteViewModel
+
+
+@{ ViewData["Title"] = "Novo Paciente";
+    ViewData["PageName"] = "paciente_create";
+    ViewData["Heading"] = "<i class='subheader-icon fal fa-edit'></i>  Novo Paciente";
+    ViewData["Category1"] = "Paciente";
+    ViewData["PageDescription"] = "Processo de inclus&atilde;o de Paciente"; }
+<div class="row">
+    <div class="col-xl-12 col-md-12 col-sm-12">
+        <div id="panel-1" class="panel">
+            <div class="panel-hdr">
+                <h2>
+                    @*Paciente <span class="fw-300"><i>Inclusao</i></span>*@
+                </h2>
+                <div class="panel-toolbar">
+                    <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+                    <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+                    <button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+                </div>
+            </div>
+            <div class="panel-container show">
+                <div class="panel-content">
+                    <div class="col-md-12">
+                        <form asp-controller="Paciente" asp-action="Create">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+
+                            <partial name="_edit_create" />
+
+                            <div class="form-group">
+                                <button type="submit" value="Adicionar Paciente" class="btn btn-outline-success">Adicionar Paciente</button>
+                                <a asp-controller="Paciente" asp-action="Index" class="btn btn-outline-info">Listagem</a>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section ScriptsBlock {
+    <script type="text/javascript">
+        var example_gridsize = $("#example-gridsize");
+        $("#gridrange").on("input change", function () {
+            //do something
+            example_gridsize.attr("placeholder", ".col-" + $(this).val());
+            example_gridsize.parent().removeClass().addClass("col-" + $(this).val())
+            console.log("col-" + $(this).val());
+        });
+    </script>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,89 @@
+﻿
+@model IEnumerable<Cooperchip.ITDeveloper.Application.ViewModels.Farmacia.FornecedorViewModel>
+@*@{
+        ViewData["Title"] = "Lista de Fornecedores";
+    }*@
+
+@*<vc:cabecalho titulo="Medical Management-Sys / Módulo Farmácia"
+    subtitulo="Administração de Fornecedores"></vc:cabecalho>*@
+
+
+
+@{ ViewData["Title"] = "Listagem de Fornecedores";
+   ViewData["PageName"] = "lista-de-fornecedores";
+   ViewData["Category1"] = "Farmácia";
+   ViewData["Heading"] = "<i class='subheader-icon fal fa-table'></i> Listagem de fornecedores: <span class='fw-300'>Módulo Farmácia</span> <sup class='badge badge-primary fw-500'>ADDON</sup>";
+
+   ViewData["Heading"] = "<i class='subheader-icon fal fa-table'></i> Listagem de Fornecedores";
+
+   ViewData["PageDescription"] = "Exporte os dados para PDF, Excel e CSV sem qualquer complicação!"; }
+@section HeadBlock {
+    <link rel="stylesheet" media="screen, print" href="~/css/datagrid/datatables/datatables.bundle.css">
+    <link rel="stylesheet" media="screen, print" href="~/css/fa-solid.css">
+}
+
+<div class="panel panel-default panel-controls">
+    <div class="panel panel-heading">
+        <h3>Lista de Fornecedores</h3>
+    </div>
+
+    <div class="panel panel-body">
+
+        <p supress-by-claim-name="Fornecedor" supress-by-claim-value="Adicionar">
+            <a class="btn btn-info" asp-action="Create">Novo Fornecedor</a>
+        </p>
+
+        <table id="dt-basic-fornecedores" class="table table-bordered table-hover table-striped w-100 dt-basic-srmartadmin">
+
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Documento)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ativo)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @this.FormataDocumento(item.TipoFornecedor, item.Documento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ativo)
+                        </td>
+                        <td class="text-right">
+                            <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><spam class="fa fa-search"></spam></a>
+                            <a class="btn btn-warning" supress-by-claim-name="Fornecedor" supress-by-claim-value="Editar" asp-action="Edit" asp-route-id="@item.Id"><spam class="fa fa-pencil-alt"></spam></a>
+                            <a class="btn btn-danger" supress-by-claim-name="Fornecedor" supress-by-claim-value="Excluir" asp-action="Delete" asp-route-id="@item.Id"><spam class="fa fa-trash"></spam></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+@section Scripts {
+
+}
+
+
+@section ScriptsBlock {
+
+    <partial name="PartialViews/_ScriptDataTables" />
+    @* .dt-basic-srmartadmin *@
+
+}

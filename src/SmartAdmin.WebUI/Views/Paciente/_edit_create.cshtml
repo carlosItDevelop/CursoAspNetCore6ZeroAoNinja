@@ -1,0 +1,98 @@
+﻿
+@using Cooperchip.ITDeveloper.Domain.Enums
+@model Cooperchip.ITDeveloper.Application.ViewModels.PacienteViewModel
+
+
+<div class="form-row form-group">
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Nome do Paciente</label>
+        <input asp-for="Nome" class="form-control" placeholder="Nome do Paciente" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+
+    <div class="col-md-3 mb-3">
+        <label class="form-label">Data de Nascimento</label>
+        <input asp-for="DataNascimento" class="form-control" type="datetime-local" />
+        <span asp-validation-for="DataNascimento" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <label class="form-label">Data de Internação</label>
+        <input asp-for="DataInternacao" class="form-control" type="datetime-local" />
+        <span asp-validation-for="DataInternacao" class="text-danger"></span>
+    </div>
+
+</div>
+<div class="form-row form-group">
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" asp-for="Email" class="form-control" placeholder="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+
+
+    <div class="col-md-3 mb-3">
+        <label class="form-label">CPF</label>
+        <input asp-for="Cpf" class="form-control" placeholder="CPF" />
+        <span asp-validation-for="Cpf" class="text-danger"></span>
+    </div>
+
+
+    <div class="col-md-3 mb-3">
+        <label class="form-label">Tipo de Cliente</label>
+        <select asp-for="TipoDeCliente" asp-items="Html.GetEnumSelectList<TipoDeCliente>()" class="custom-select form-control">
+            <option></option>
+        </select>
+        <span asp-validation-for="TipoDeCliente" class="text-danger"></span>
+    </div>
+</div>
+
+
+
+<div class="form-row form-group">
+    <div class="col-md-2 mb-3">
+        <label class="form-label">Sexo</label>
+        <select asp-for="Sexo" asp-items="Html.GetEnumSelectList<Sexo>()" class="custom-select form-control">
+            <option></option>
+        </select>
+        <span asp-validation-for="Sexo" class="text-danger"></span>
+    </div>
+
+
+    <div class="col-md-3 mb-3">
+        <label class="form-label">Estado do Paciente</label>
+        <select asp-for="EstadoPacienteId" asp-items="@ViewBag.EstadoPaciente" class="custom-select form-control">
+            <option></option>
+        </select>
+        <span asp-validation-for="EstadoPacienteId" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-2 mb-3">
+        <label class="form-label">RG</label>
+        <input asp-for="Rg" class="form-control" />
+        <span asp-validation-for="Rg" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-2 mb-3">
+        <label class="form-label">RG / Orgao Expedidor</label>
+        <input asp-for="RgOrgao" class="form-control" />
+        <span asp-validation-for="RgOrgao" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <label class="form-label">RG / Data Expedição</label>
+        <input type="datetime-local" asp-for="RgDataEmissao" class="form-control" />
+        <span asp-validation-for="RgDataEmissao" class="text-danger"></span>
+    </div>
+
+</div>
+
+<div class="form-row form-group">
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Alegação ao Atendente</label>
+        <input asp-for="Motivo" class="form-control" />
+        <span asp-validation-for="Motivo" class="text-danger"></span>
+    </div>
+</div>
