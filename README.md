@@ -1,12 +1,8 @@
-# SmartAdmin for ASP.NET Core 3.1
+# SmartAdmin for ASP.NET Core
 
 SmartAdmin for ASP.NET Core is an open-source and cross-platform framework for building modern cloud based internet connected applications, such as web apps, IoT apps and mobile backends. SmartAdmin for ASP.NET Core apps can run on .NET Core or on the full .NET Framework. It was architected to provide an optimized development framework for apps that are deployed to the cloud or run on-premises. It consists of modular components with minimal overhead, so you retain flexibility while constructing your solutions. You can develop and run your SmartAdmin for ASP.NET Core apps cross-platform on Windows, Mac and Linux. [Learn more about ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
 
 ## Get Started
-
-Follow the **Getting Started** instructions in the SmartAdmin for ASP.NET Core **docs** folder or directly from the **ASP.NET Core 3.1** menu after launching the website locally.
-
-Or use the following instructions to setup a local server running SmartAdmin for ASP.NET Core:
 
 1. Download and install the **ASP.NET Core 3.1 SDK** here: https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.102-windows-x64-installer
     * You can verify the installation by opening a command line tool of your choice and running the following command: `dotnet --info`
@@ -33,19 +29,10 @@ Or use the following instructions to setup a local server running SmartAdmin for
 
 Also check out the [.NET Homepage](https://www.microsoft.com/net) for released versions of .NET, getting started guides, and learning resources.
 
-## How to Engage, Contribute, and Give Feedback
-
-Some of the best ways to contribute are to try things out, file issues, join in design conversations, and make pull-requests.
-
-* Download our latest builds
-* Follow along with the development of SmartAdmin for ASP.NET Core:
-  * [Roadmap](https://support.gotbootstrap.com/t/asp-net-core): The schedule and milestone themes for SmartAdmin for ASP.NET Core.
-* Check out the [contributing](CONTRIBUTING.md) page to see the best places to log issues and start discussions.
-
 ## Reporting security issues and bugs
 
 Security issues and bugs should be reported privately, via email, to SmartAdmin Security (SAC) at <secure@walapa.nl>. You should receive a response within 72 hours. If for some reason you do not, please follow up via email to ensure we received your original message.
 
 ## Code of conduct
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).  For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [smartadmin-next@walapa.nl](mailto:smartadmin-next@walapa.nl) with any additional questions or comments.
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).  For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [cooperchip.vendas@gmail.com](mailto:cooperchip.vendas@gmail.com) with any additional questions or comments.
