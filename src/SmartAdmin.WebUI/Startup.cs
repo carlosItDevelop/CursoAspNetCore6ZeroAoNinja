@@ -1,19 +1,6 @@
-﻿using Cooperchip.ITDeveloper.Application.AutoMapper;
-using Cooperchip.ITDeveloper.Application.Extensions.Attibutes;
-using Cooperchip.ITDeveloper.CrossCutting.IoC;
-using Cooperchip.ITDeveloper.Mvc.Configuration;
-using Cooperchip.ITDeveloper.Mvc.Data;
-using Cooperchip.ITDeveloper.Mvc.Extensions.ExtensionsMethods;
-using Cooperchip.ITDeveloper.Mvc.Extensions.Identity;
-using Cooperchip.ITDeveloper.Mvc.Extensions.Identity.Services;
-using Cooperchip.ITDeveloper.Mvc.Models;
-using KissLog.Apis.v1.Listeners;
-using KissLog.AspNetCore;
-using MediatR;
+﻿using Cooperchip.ITDeveloper.Mvc.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.DataAnnotations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -44,16 +31,8 @@ namespace Cooperchip.ITDeveloper.Mvc
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(Startup));
 
-            services.AddDbContextConfig(Configuration); // In DbContextConfig
-            services.AddIdentityConfig(Configuration); // In IdentityConfig
             services.AddMvcAndRazor(); // In MvcAndRazor
-            services.AddDependencyInjectConfig(Configuration); // In DependencyInjectConfig
-            services.AddBoundedContextFarmacia(Configuration); // BoundedContext Farmacia
-
-            // Prover Suporte para Code Page (1252) (windows-1252)
-            services.AddCodePageProviderNotSupportedInDotNetCoreForAnsi();
 
             services.Configure<SmartSettings>(Configuration.GetSection(SmartSettings.SectionName));
 
@@ -61,31 +40,9 @@ namespace Cooperchip.ITDeveloper.Mvc
             // While having to type '.Value' everywhere is driving me nuts (>_<), using this method means reloaded appSettings.json from disk will not work
             services.AddSingleton(s => s.GetRequiredService<IOptions<SmartSettings>>().Value);
 
-
-            // Todo: Criando minha própria IOptions: StyleButtom
-            services.Configure<StyleButtom>(Configuration.GetSection(StyleButtom.SectionName));
-            services.AddSingleton(s => s.GetRequiredService<IOptions<StyleButtom>>().Value);
-
-
-            // Todo: Criando minha própria IOptions: LeitosCapacidade
-            services.Configure<LeitosESetores>(Configuration.GetSection(LeitosESetores.SectionName));
-            services.AddSingleton(s => s.GetRequiredService<IOptions<LeitosESetores>>().Value);
-
-            // Register NativeInjectorEvent : CrossCutting.IoC
-            NativeInjectorEvent.AddRegisterEvent(services);
-
-
-            services.AddSingleton<IValidationAttributeAdapterProvider, MoedaValidationAttributeAdapterProvider>();
-
         }
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env
-            /* Comentei o CriaUsersAndRoles então comento aqui por warn
-             * ApplicationDbContext context,
-             * UserManager<ApplicationUser> userManager,
-             * RoleManager<IdentityRole> roleManager
-             */
-            )
+
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
         {
             if (env.IsDevelopment())
@@ -110,40 +67,12 @@ namespace Cooperchip.ITDeveloper.Mvc
             app.UseAuthentication();
             app.UseAuthorization();
 
-            if (env.IsProduction())
-            {
-                app.UseKissLogMiddleware(options =>
-                {
-                    options.Listeners.Add(new KissLogApiListener(new KissLog.Apis.v1.Auth.Application(
-                        Configuration["KissLog.OrganizationId"],
-                        Configuration["KissLog.ApplicationId"])
-                    ));
-                });
-            }
-
-
-            var authMsgSenderOpt = new AuthMessageSenderOptions
-            {
-                SendGridUser = Configuration["SendGridUser"],
-                SendGridKey = Configuration["SendGridKey"]
-            };
-
-            //CriaUsersAndRoles.Seed(context, userManager, roleManager).Wait();
-            //app.UseMiddleware<DefaultUsersAndRolesMiddeware>();            
-            //app.UseAddUserAndRoles();
-
-            app.UseGlobalizationConfig();
 
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapControllerRoute(
-                //    "default",
-                //    "{controller=Intel}/{action=AnalyticsDashboard}");
-
                 endpoints.MapControllerRoute(
                     "default",
-                    "{controller=Home}/{action=Index}");
-
+                    "{controller=Intel}/{action=AnalyticsDashboard}");
 
                 endpoints.MapRazorPages();
             });

@@ -1,11 +1,6 @@
-
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+Ôªøusing System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using Cooperchip.ITDeveloper.Mvc.Extensions.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -48,14 +43,14 @@ namespace Cooperchip.ITDeveloper.Mvc.Areas.Identity.Pages.Account
 
             if (!ModelState.IsValid)
             {
-                StatusMessage = "Email inv·lido ou inexistente!";
+                StatusMessage = "Email inv√°lido ou inexistente!";
                 return Page();
             }
 
             var user = await _userManager.FindByEmailAsync(Input.Email);
             if (user == null)
             {
-                return NotFound($"N„o existe usu·rio com o email [ {Input.Email} ] cadastrado!");
+                return NotFound($"N√£o existe usu√°rio com o email [ {Input.Email} ] cadastrado!");
             }
 
             var userId = await _userManager.GetUserIdAsync(user);
@@ -71,9 +66,9 @@ namespace Cooperchip.ITDeveloper.Mvc.Areas.Identity.Pages.Account
             await _emailSender.SendEmailAsync(email, "Confirme seu Email antes de Logar",
                 $"Por gentileza, confirme sua conta <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Clicando aqui</a>.");
 
-            StatusMessage = "VerificaÁ„o de conta enviada. Por gentileza verifique seu Email";
+            StatusMessage = "Verifica√ß√£o de conta enviada. Por gentileza verifique seu Email";
 
-            // Todo: Insert Carlos => Apenas para preencher o campo Email apÛs envio
+            // Todo: Insert Carlos => Apenas para preencher o campo Email ap√≥s envio
             if (Input.Email != user.Email)
             {
                 Input.Email = user.Email;
