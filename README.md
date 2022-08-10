@@ -1,4 +1,4 @@
-# Curso Asp.Net Core 6.0 - Do Zero ao Ninja com SmartAdmin Template
+### Curso Asp.Net Core 6.0 - Do Zero ao Ninja com SmartAdmin Template
 
 SmartAdmin for ASP.NET Core is an open-source and cross-platform framework for building modern cloud based internet connected applications, such as web apps, IoT apps and mobile backends. SmartAdmin for ASP.NET Core apps can run on .NET Core or on the full .NET Framework. It was architected to provide an optimized development framework for apps that are deployed to the cloud or run on-premises. It consists of modular components with minimal overhead, so you retain flexibility while constructing your solutions. You can develop and run your SmartAdmin for ASP.NET Core apps cross-platform on Windows, Mac and Linux. [Learn more about ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
 
