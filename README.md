@@ -29,9 +29,6 @@ SmartAdmin for ASP.NET Core is an open-source and cross-platform framework for b
 
 Also check out the [.NET Homepage](https://www.microsoft.com/net) for released versions of .NET, getting started guides, and learning resources.
 
-## Reporting security issues and bugs
-
-Security issues and bugs should be reported privately, via email, to SmartAdmin Security (SAC) at <secure@walapa.nl>. You should receive a response within 72 hours. If for some reason you do not, please follow up via email to ensure we received your original message.
 
 ## Code of conduct
 
