@@ -42,7 +42,6 @@ namespace Cooperchip.ITDeveloper.Mvc
 
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Startup));
@@ -75,19 +74,6 @@ namespace Cooperchip.ITDeveloper.Mvc
             // Register NativeInjectorEvent : CrossCutting.IoC
             NativeInjectorEvent.AddRegisterEvent(services);
 
-            #region: Register NativeInjectorEvent : CrossCutting.IoC
-            //services.AddMediatR(typeof(Startup));
-
-            //Domain Bus (Mediator)
-            //services.AddScoped<IMediatrHandler, MediatrHandler>();
-            //// Várias Subscrcrição pro mesmo Evento  - (Observer / Subscriber)
-            //services.AddScoped<INotificationHandler<PacienteCadastradoEvent>, PacienteTriagemEventHandler>();
-            //services.AddScoped<INotificationHandler<PacienteCadastradoEvent>, ClassificacaoPrioridadeHandler>();
-            //services.AddScoped<INotificationHandler<PacienteCadastradoEvent>, PacienteSaiuAReveliaHandler>();
-            //services.AddScoped<INotificationHandler<PacienteSemAvaliacaoEvent>, PacienteSemAvaliacaoHandler>();
-
-            //services.AddScoped<INotificationHandler<AuthorCadastradoEvent>, AuthorEventHandler>();
-            #endregion
 
             services.AddSingleton<IValidationAttributeAdapterProvider, MoedaValidationAttributeAdapterProvider>();
 
