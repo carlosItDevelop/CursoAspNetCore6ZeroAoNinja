@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Areas\Identity\Pages\Account\Register.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
 
     <PackageReference Include="kisslog.AspNetCore" Version="5.1.2" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
@@ -40,12 +36,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Identity\Data\" />
+    <Folder Include="Areas\" />
     <Folder Include="wwwroot\images\farmacia\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Views\Shared\Components\Paginacao\Default.cshtml" />
   </ItemGroup>
 
 </Project>
